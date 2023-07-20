@@ -3,15 +3,19 @@ package Chess;
 import boardgame.Board;
 import boardgame.Piece;
 
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
 	
 	private Color color;
 
+	
+	
 	public ChessPiece(Board board, Color color) {
-		super(board);
+		super(board, color);
 		this.color = color;
 	}
-	
+
+
+
 	public Color getColor() {
 		return color;
 	}
