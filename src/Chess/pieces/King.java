@@ -38,72 +38,72 @@ public class King extends ChessPiece {
 
 		// above
 
-		p.setValues(position.getRow() - 1, position.getColumm());
+		p.setValues(position.getRow() - 1, position.getColumn());
 		if (getBoard().positionExists(p) && canMove(p)){
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// right
-		p.setValues(position.getRow(), position.getColumm() + 1);
+		p.setValues(position.getRow(), position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)){
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// left
-		p.setValues(position.getRow(), position.getColumm() - 1);
+		p.setValues(position.getRow(), position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)){
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// down
-		p.setValues(position.getRow() + 1, position.getColumm());
+		p.setValues(position.getRow() + 1, position.getColumn());
 		if (getBoard().positionExists(p) && canMove(p)){
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// diagonal superior direita
-		p.setValues(position.getRow() - 1, position.getColumm() + 1);
+		p.setValues(position.getRow() - 1, position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)){
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// diagonal superior esquerda
-		p.setValues(position.getRow() - 1, position.getColumm() - 1);
+		p.setValues(position.getRow() - 1, position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// diagonal inferior esquerda
-		p.setValues(position.getRow() + 1, position.getColumm() - 1);
+		p.setValues(position.getRow() + 1, position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 
 		// diagonal inferior direita
-		p.setValues(position.getRow() + 1, position.getColumm() + 1);
+		p.setValues(position.getRow() + 1, position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
-			mat[p.getRow()][p.getColumm()] = true;
+			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
 		//#specialmove Castling
 		if(getMoveCount() == 0 && !chessMatch.getCheck()) {
 			//roque menor
-			Position posT1 = new Position(position.getRow(), position.getColumm() +3);
+			Position posT1 = new Position(position.getRow(), position.getColumn() +3);
 			if(testRookCastling(posT1)) {
-				Position p1 = new Position(position.getRow(), position.getColumm() +1);
-				Position p2 = new Position(position.getRow(), position.getColumm() +2);
+				Position p1 = new Position(position.getRow(), position.getColumn() +1);
+				Position p2 = new Position(position.getRow(), position.getColumn() +2);
 				if(getBoard().piece(p1) == null && getBoard().piece(p2) == null) {
-					mat[position.getRow()][position.getColumm() + 2] = true;
+					mat[position.getRow()][position.getColumn() + 2] = true;
 				}
 			}
 				//roque maior
-				Position posT2 = new Position(position.getRow(), position.getColumm() -4);
+				Position posT2 = new Position(position.getRow(), position.getColumn() -4);
 				if(testRookCastling(posT2)) {
-					Position p1 = new Position(position.getRow(), position.getColumm() -1);
-					Position p2 = new Position(position.getRow(), position.getColumm() -2);
-					Position p3 = new Position(position.getRow(), position.getColumm() -3);
+					Position p1 = new Position(position.getRow(), position.getColumn() -1);
+					Position p2 = new Position(position.getRow(), position.getColumn() -2);
+					Position p3 = new Position(position.getRow(), position.getColumn() -3);
 					if(getBoard().piece(p1) == null && getBoard().piece(p2) == null && getBoard().piece(p3) == null){
-						mat[position.getRow()][position.getColumm() -2] = true;
+						mat[position.getRow()][position.getColumn() -2] = true;
 					}
 					}
 			}
